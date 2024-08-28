@@ -12,7 +12,7 @@ public class UserService {
     @GrpcClient("user-service")
     private UserServiceGrpc.UserServiceBlockingStub userClient;
 
-    public UserInformation getUserInformation(int userId){
+    public UserInformation getUserInformation(int userId) {
         var request = UserInformationRequest.newBuilder()
                 .setUserId(userId)
                 .build();
