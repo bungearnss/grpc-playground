@@ -19,6 +19,6 @@ public class TradeController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public StockTradeResponse trade(@RequestBody StockTradeRequest request){
-        return tradeService.trade(request);
+        return this.tradeService.trade(request);
     }
 }

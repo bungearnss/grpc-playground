@@ -18,8 +18,7 @@ public class TradeService {
     private StockServiceGrpc.StockServiceBlockingStub stockClient;
 
     public StockTradeResponse trade(StockTradeRequest request){
-        var priceRequest = StockPriceRequest.newBuilder()
-                .setTicker(request.getTicker()).build();
+        var priceRequest = StockPriceRequest.newBuilder().setTicker(request.getTicker()).build();
         var priceResponse = this.stockClient.getStockPrice(priceRequest);
         var tradeRequest = request.toBuilder().setPrice(priceResponse.getPrice()).build();
         return this.userClient.tradeStock(tradeRequest);
